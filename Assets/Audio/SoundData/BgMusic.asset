@@ -16,5 +16,5 @@ MonoBehaviour:
   audioMixerGroup: {fileID: 1848279792277505753, guid: 8d73bca286c902543bf1343a84d3d889, type: 2}
   volume: 1
   loop: 1
-  pitch: 1
+  pitch: 0.66
   pitchVariance: 0

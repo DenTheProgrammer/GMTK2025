@@ -17,7 +17,7 @@ public class AudioManager : MonoBehaviour, IAudioPlayer
     {
         if (!soundData || !soundData.sound)
         {
-            Debug.LogWarning($"No such SoundData or sound");
+            Debug.LogWarning($"No such SoundData or sound {soundData.sound.name}");
             return null;
         }
         if (this == null || gameObject == null || transform == null) return null;
