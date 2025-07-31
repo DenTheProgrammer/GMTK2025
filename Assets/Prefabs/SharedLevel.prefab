@@ -177,7 +177,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -211,7 +211,7 @@ SpriteShapeRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Color: {r: 0.7294118, g: 0.627451, b: 0.5372549, a: 1}
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 2800000, guid: b281b91a70a624a0da1c43adc1c30c7b, type: 3}
@@ -646,7 +646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.12156863}
+  m_Color: {r: 0.7691705, g: 1, b: 0.51257855, a: 0.0627451}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1217,6 +1217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4992595380875813291}
   - component: {fileID: 7920713553528435274}
+  - component: {fileID: 876786826396823387}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -1282,7 +1283,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 5
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.9308176, g: 0.48463383, b: 0.14928192, a: 1}
   m_FlipX: 0
@@ -1294,6 +1295,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &876786826396823387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3835392426188352430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26062d2af1af1074cab4f4a35690a8c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowMultiplier: 2
 --- !u!1 &3946603654230049613
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,9 +1518,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.25157225, g: 0.1748348, b: 0.1748348, a: 1}
+  m_Color: {r: 0.24705884, g: 0.17254902, b: 0.17254902, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1550,7 +1564,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.043220222}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1560,7 +1574,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.91355956}
   m_EdgeRadius: 0
 --- !u!1 &4772356841552669513
 GameObject:
@@ -2099,7 +2113,7 @@ Transform:
   m_GameObject: {fileID: 5940630334636867212}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.4, y: -2.7, z: 0}
+  m_LocalPosition: {x: 6.4, y: -4.44, z: 0}
   m_LocalScale: {x: 1, y: 1.99, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2149,7 +2163,7 @@ SpriteShapeRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Color: {r: 0.94117653, g: 0.49411768, b: 0.15294118, a: 0.02745098}
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 2800000, guid: b281b91a70a624a0da1c43adc1c30c7b, type: 3}
@@ -2164,8 +2178,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: -0.0090351105, y: 2.3172436, z: 0}
-    m_Extent: {x: 4.7771044, y: 3.5675826, z: 0}
+    m_Center: {x: -0.5016756, y: 2.499052, z: 0}
+    m_Extent: {x: 3.0941877, y: 3.749391, z: 0}
   m_SpriteSortPoint: 0
 --- !u!114 &4017243539871453366
 MonoBehaviour:
@@ -2182,33 +2196,65 @@ MonoBehaviour:
   m_Spline:
     m_IsOpenEnded: 0
     m_ControlPoints:
-    - position: {x: -1, y: -1, z: 0}
-      leftTangent: {x: 0.53597367, y: -0.00048214197, z: -0}
-      rightTangent: {x: -0.53597367, y: 0.00048214197, z: 0}
+    - position: {x: -1, y: -1.0000001, z: 0}
+      leftTangent: {x: 0.53597355, y: -0.00048184395, z: 0}
+      rightTangent: {x: -0.27098894, y: 0.0002439022, z: 0}
       mode: 1
       height: 1
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: -4.374551, y: 5.6364174, z: 0}
-      leftTangent: {x: -1.0023332, y: 0.0010559559, z: 0}
-      rightTangent: {x: 1.0023332, y: -0.0010559559, z: -0}
+    - position: {x: -3.2523713, y: 2.2696283, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: -1.8324885, y: 2.2852669, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: -2.6022246, y: 5.851186, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 0.22578049, y: 5.985229, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: -0.20847416, y: 0.79055005, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 2.3436618, y: 0.7090332, z: 0}
+      leftTangent: {x: 0.072315216, y: 0.11511707, z: 0}
+      rightTangent: {x: -0.6123829, y: -0.97595775, z: 0}
       mode: 1
       height: 1
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 4.3556895, y: 5.5281773, z: 0}
-      leftTangent: {x: -1.0005913, y: -0.0016920567, z: -0}
-      rightTangent: {x: 1.0005913, y: 0.0016920567, z: 0}
-      mode: 1
-      height: 1
-      spriteIndex: 0
-      corner: 1
-      m_CornerMode: 1
-    - position: {x: 1, y: -1, z: 0}
-      leftTangent: {x: 0.54391515, y: 0.0004222989, z: 0}
-      rightTangent: {x: -0.54391515, y: -0.0004222989, z: -0}
+    - position: {x: 1, y: -1.0000001, z: 0}
+      leftTangent: {x: 0.18222046, y: 0.00014162064, z: 0}
+      rightTangent: {x: -0.5439153, y: -0.0004222393, z: 0}
       mode: 1
       height: 1
       spriteIndex: 0
@@ -2263,7 +2309,7 @@ Transform:
   m_GameObject: {fileID: 6113753606048055227}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.12, y: -2.71, z: 0}
+  m_LocalPosition: {x: -7.23, y: -2.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2583,8 +2629,8 @@ Transform:
   m_GameObject: {fileID: 8942335047714701895}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 65, y: 65, z: 65}
+  m_LocalPosition: {x: 5.48, y: -1.86, z: 0}
+  m_LocalScale: {x: 13.5, y: 13.5, z: 13.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5020015485991355165}
@@ -2630,11 +2676,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 665816297
+  m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.35220122, g: 0.22261772, b: 0.22261772, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 7b97c4428fc617f498cd78a922c01747, type: 3}
+  m_Color: {r: 0.7106918, g: 0.6369407, b: 0.6369407, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
