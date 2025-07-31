@@ -12,7 +12,7 @@ public class PersistentRoot : MonoBehaviour
         
         if (_instance != null)
         {
-            Destroy(gameObject);
+            DestroyImmediate(gameObject);
             return;
         }
         _instance = this;

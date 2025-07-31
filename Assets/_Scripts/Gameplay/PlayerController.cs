@@ -23,15 +23,19 @@ public class PlayerController : MonoBehaviour
     private float moveInput;
     private float coyoteTimeCounter;
 
-    private void Awake()
+    private void Start()
     {
-        InitTeleportPlayer();
+        rb = GetComponent<Rigidbody2D>();
         
+        InitTeleportPlayer();
+
+        SetupCameraFollow();
+    }
+
+    private void SetupCameraFollow()
+    {
         CameraFollow cameraFollow = FindFirstObjectByType<CameraFollow>();
-        if (cameraFollow != null)
-        {
-            cameraFollow.target = transform;
-        }
+        cameraFollow.target = transform;
     }
 
     private void InitTeleportPlayer()
@@ -41,11 +45,6 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = spawnPoint.transform.position;
         }
-    }
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
