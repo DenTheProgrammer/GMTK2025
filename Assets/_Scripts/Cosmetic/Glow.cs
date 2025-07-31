@@ -21,7 +21,21 @@ public class Glow : MonoBehaviour
 
     private void Update()
     {
-        //SetGlow(glowMultiplier); //TODO: remove, DBG!
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            _ = SetGlow(1.6f, 3, 0.33f);
+        }
+    }
+
+    public async Awaitable SetGlow(float intensity, float repeat, float duration)
+    {
+        for (int i = 0; i < repeat; i++)
+        {
+            SetGlow(intensity);
+            await Awaitable.WaitForSecondsAsync(duration/2f);
+            SetGlow(1);   
+            await Awaitable.WaitForSecondsAsync(duration/2f);
+        }
     }
 
     public void SetGlow(float intensity)

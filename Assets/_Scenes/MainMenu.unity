@@ -1026,7 +1026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef5df0f9db81434999815450cd74ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resolution: {x: 80, y: 45}
+  resolution: {x: 201.4, y: 180.5}
   material: {fileID: 2100000, guid: 23e58fbf3d5fedc4dba47e781a1ea21b, type: 2}
 --- !u!4 &1555216528
 Transform:
