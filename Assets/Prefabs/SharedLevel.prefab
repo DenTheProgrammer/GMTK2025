@@ -848,10 +848,10 @@ GameObject:
   - component: {fileID: 6786088080450431839}
   - component: {fileID: 5085700188720104041}
   - component: {fileID: 7561159670409880761}
-  - component: {fileID: 3468550258601556663}
   - component: {fileID: 3328197963811373306}
+  - component: {fileID: 5751799980998330747}
   m_Layer: 5
-  m_Name: middlePart
+  m_Name: Condition1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -904,7 +904,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "if (buttonPressed(\"D\"))\n{\n    restartLevel();\n}"
+  m_text: "if (buttonPressed(\"A\"))\n{\n    player.TeleportToStart();\n}"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -975,20 +975,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &3468550258601556663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2704770059310990104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e44c1fbfc2b4b2040a524035d16976ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: 100
-  glow: {fileID: 3328197963811373306}
 --- !u!114 &3328197963811373306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1002,6 +988,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glowMultiplier: 1
+--- !u!114 &5751799980998330747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2704770059310990104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9814835c2ec421aaf1a7ac4abab2fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: 97
+  glow: {fileID: 3328197963811373306}
+  teleportTo: {fileID: 7115929458142841308}
+  playerController: {fileID: 1556321847284787293}
 --- !u!1 &2909014638412716918
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,10 +1287,10 @@ GameObject:
   - component: {fileID: 1580943774393623127}
   - component: {fileID: 4433408649757488818}
   - component: {fileID: 1193394610392537103}
-  - component: {fileID: 4108317944048039346}
   - component: {fileID: 1212844070965461425}
+  - component: {fileID: 3203329292562575121}
   m_Layer: 5
-  m_Name: middlePart (1)
+  m_Name: Condition2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1341,7 +1343,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "if (buttonPressed(\"LeftArrow\"))\n{\n    player.TeleportToStart();\n}"
+  m_text: "if (buttonPressed(\"RightArrow\"))\n{\n    restartLevel();\n}"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1412,22 +1414,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &4108317944048039346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3671463152858872756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9814835c2ec421aaf1a7ac4abab2fa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: 276
-  glow: {fileID: 1212844070965461425}
-  teleportTo: {fileID: 7115929458142841308}
-  playerController: {fileID: 1556321847284787293}
 --- !u!114 &1212844070965461425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1441,6 +1427,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glowMultiplier: 1
+--- !u!114 &3203329292562575121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3671463152858872756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e44c1fbfc2b4b2040a524035d16976ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: 275
+  glow: {fileID: 1212844070965461425}
 --- !u!1 &3835392426188352430
 GameObject:
   m_ObjectHideFlags: 0
@@ -2787,7 +2787,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -6.52, y: 3.13}
+  m_AnchoredPosition: {x: -5.65, y: 3.13}
   m_SizeDelta: {x: 6, y: 4.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &98459007573235273
