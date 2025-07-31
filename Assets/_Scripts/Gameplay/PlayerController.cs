@@ -70,15 +70,25 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, maxJumpVelocity);
         }
 
-        // Better jump physics
-        if (rb.linearVelocity.y < 0)
+        // Better jump physics (arcade snappy style)
+        if (rb.linearVelocity.y > 0) // going up
         {
+            // Почти нет замедления при удержании кнопки
+            float gravityBoost = Input.GetButton("Jump") ? lowJumpMultiplier-0.5f : lowJumpMultiplier; 
+            rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (gravityBoost - 1) * Time.deltaTime;
+    
+            // Резкий переход в падение
+            if (rb.linearVelocity.y < 2f) // near apex
+            {
+                rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (apexGravityMultiplier) * Time.deltaTime;
+            }
+        }
+        else if (rb.linearVelocity.y < 0) // falling
+        {
+            // Быстрое падение
             rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
-        else if (rb.linearVelocity.y > 0 && !Input.GetButton("Jump"))
-        {
-            rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
-        }
+
 
         // Extra gravity near apex for snappy fall
         if (Mathf.Abs(rb.linearVelocity.y) < 0.5f && !isGrounded)
