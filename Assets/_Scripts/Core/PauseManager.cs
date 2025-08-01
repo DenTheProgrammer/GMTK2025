@@ -50,6 +50,6 @@ public class PauseManager : MonoBehaviour
         _isPaused = !_isPaused;
         pausePanel.gameObject.SetActive(_isPaused);
         
-        Time.timeScale = _isPaused ? 0 : 1;
+        //Time.timeScale = _isPaused ? 0 : 1;
     }
 }
