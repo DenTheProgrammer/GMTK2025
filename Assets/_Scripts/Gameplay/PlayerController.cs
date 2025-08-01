@@ -3,6 +3,7 @@
 public class PlayerController : MonoBehaviour
 {
     private static readonly int Speed = Animator.StringToHash("Speed");
+    private static readonly int InJump = Animator.StringToHash("InJump");
 
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private bool _isGrounded;
     private float _moveInput;
     private float _coyoteTimeCounter;
+    private bool _inJump;
 
     private void Start()
     {
@@ -107,6 +109,19 @@ public class PlayerController : MonoBehaviour
 
     private void SpriteAnimate()
     {
+        if (_rb.linearVelocity.y > 0 && _inJump == false) //start jump
+        {
+            _inJump = true;
+            //Debug.Log($"Start Jump");
+        }
+
+        if (_inJump == true && CheckIfGrounded()) //stop jump
+        {
+            _inJump = false;
+            //Debug.Log($"Stop Jump");
+        }
+        
+        animator.SetBool(InJump, _inJump);
         animator.SetFloat(Speed, Mathf.Abs(_moveInput * moveSpeed));
         if (_moveInput != 0)
         {
@@ -120,6 +135,11 @@ public class PlayerController : MonoBehaviour
         _rb.linearVelocity = new Vector2(_moveInput * moveSpeed, _rb.linearVelocity.y);
 
         // Ground check
-        _isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
+        _isGrounded = CheckIfGrounded();
+    }
+
+    private Collider2D CheckIfGrounded()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
     }
 }
