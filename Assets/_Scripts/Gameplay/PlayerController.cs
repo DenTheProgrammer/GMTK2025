@@ -2,6 +2,8 @@
 
 public class PlayerController : MonoBehaviour
 {
+    private static readonly int Speed = Animator.StringToHash("Speed");
+
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
     public float jumpForce = 7f;
@@ -18,14 +20,18 @@ public class PlayerController : MonoBehaviour
     public float checkRadius = 0.2f;
     public LayerMask groundLayer;
 
-    private Rigidbody2D rb;
-    private bool isGrounded;
-    private float moveInput;
-    private float coyoteTimeCounter;
+    [Header("Animations")]
+    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] private Animator animator;
+    
+    private Rigidbody2D _rb;
+    private bool _isGrounded;
+    private float _moveInput;
+    private float _coyoteTimeCounter;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
         
         InitTeleportPlayer();
 
@@ -50,59 +56,70 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // Horizontal input
-        moveInput = Input.GetAxisRaw("Horizontal");
+        _moveInput = Input.GetAxisRaw("Horizontal");
+        SpriteAnimate();
+
 
         // Update coyote time
-        if (isGrounded)
-            coyoteTimeCounter = coyoteTime;
+        if (_isGrounded)
+            _coyoteTimeCounter = coyoteTime;
         else
-            coyoteTimeCounter -= Time.deltaTime;
+            _coyoteTimeCounter -= Time.deltaTime;
 
         // Jump
-        if (coyoteTimeCounter > 0f && Input.GetButtonDown("Jump"))
+        if (_coyoteTimeCounter > 0f && Input.GetButtonDown("Jump"))
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, jumpForce);
         }
 
         // Clamp upward speed
-        if (rb.linearVelocity.y > maxJumpVelocity)
+        if (_rb.linearVelocity.y > maxJumpVelocity)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, maxJumpVelocity);
+            _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, maxJumpVelocity);
         }
 
         // Better jump physics (arcade snappy style)
-        if (rb.linearVelocity.y > 0) // going up
+        if (_rb.linearVelocity.y > 0) // going up
         {
             // Почти нет замедления при удержании кнопки
             float gravityBoost = Input.GetButton("Jump") ? lowJumpMultiplier-0.5f : lowJumpMultiplier; 
-            rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (gravityBoost - 1) * Time.deltaTime;
+            _rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (gravityBoost - 1) * Time.deltaTime;
     
             // Резкий переход в падение
-            if (rb.linearVelocity.y < 2f) // near apex
+            if (_rb.linearVelocity.y < 2f) // near apex
             {
-                rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (apexGravityMultiplier) * Time.deltaTime;
+                _rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (apexGravityMultiplier) * Time.deltaTime;
             }
         }
-        else if (rb.linearVelocity.y < 0) // falling
+        else if (_rb.linearVelocity.y < 0) // falling
         {
             // Быстрое падение
-            rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            _rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
 
 
         // Extra gravity near apex for snappy fall
-        if (Mathf.Abs(rb.linearVelocity.y) < 0.5f && !isGrounded)
+        if (Mathf.Abs(_rb.linearVelocity.y) < 0.5f && !_isGrounded)
         {
-            rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (apexGravityMultiplier - 1) * Time.deltaTime;
+            _rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (apexGravityMultiplier - 1) * Time.deltaTime;
+        }
+    }
+
+    private void SpriteAnimate()
+    {
+        animator.SetFloat(Speed, Mathf.Abs(_moveInput * moveSpeed));
+        if (_moveInput != 0)
+        {
+            spriteRenderer.flipX = _moveInput < 0;
         }
     }
 
     void FixedUpdate()
     {
         // Move player
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        _rb.linearVelocity = new Vector2(_moveInput * moveSpeed, _rb.linearVelocity.y);
 
         // Ground check
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
+        _isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
     }
 }
