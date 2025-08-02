@@ -1045,11 +1045,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding:
     m_Left: 0
-    m_Right: 0
-    m_Top: 0
+    m_Right: 15
+    m_Top: 15
     m_Bottom: 0
   m_ChildAlignment: 2
-  m_Spacing: 0
+  m_Spacing: 15
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -1365,11 +1365,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8918731925607055801, guid: 8cc049bd33835cc4ea15629f8391795a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 232.70001
+      value: 217.70001
       objectReference: {fileID: 0}
     - target: {fileID: 8918731925607055801, guid: 8cc049bd33835cc4ea15629f8391795a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 8918731925607055801, guid: 8cc049bd33835cc4ea15629f8391795a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -311,7 +311,7 @@ MonoBehaviour:
   m_InstanceId: 0
   m_ShadowShape2DComponent: {fileID: 6470583753924955406}
   m_ShadowShape2DProvider:
-    rid: 4540438389458993303
+    rid: 3575771304159084646
   m_ShadowCastingSource: 2
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
@@ -331,6 +331,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 4540438389458993303
+    - rid: 3575771304159084646
       type: {class: ShadowShape2DProvider_SpriteRenderer, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 
