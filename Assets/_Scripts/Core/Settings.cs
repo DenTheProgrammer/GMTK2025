@@ -12,7 +12,7 @@ public class Settings : MonoBehaviour
     [SerializeField] private Slider musicVolume;
     [Header("Fun Settings")]
     [SerializeField] public Slider brightness;
-    [SerializeField] private SpriteRenderer brightnessImage;
+    [SerializeField] public SpriteRenderer brightnessImage;
     [SerializeField] public Toggle colorblindToggle;
     [SerializeField] private Volume ppVolume;
     
@@ -36,8 +36,13 @@ public class Settings : MonoBehaviour
 
     private void UpdateBrightness(float value)
     {
+        Debug.Log($"UpdateBrightness: {value}");
         Color tmp = brightnessImage.color;
         tmp.a = 1-value;
+        if (tmp.a > 0.999)
+        {
+            tmp.a = 1;
+        }
         brightnessImage.color = tmp;
     }
 

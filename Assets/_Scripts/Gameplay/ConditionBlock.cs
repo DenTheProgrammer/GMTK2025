@@ -14,7 +14,7 @@ public class ConditionBlock : MonoBehaviour
         effects = new List<Effect>(GetComponents<Effect>());
     }
 
-    private async void Update()
+    private void Update()
     {
         if (condition.CheckCondition())
         {
@@ -25,7 +25,7 @@ public class ConditionBlock : MonoBehaviour
             {
                 try
                 {
-                    await effect.ApplyEffect();
+                    _ = effect.ApplyEffect();
                 }
                 catch (Exception e)
                 {

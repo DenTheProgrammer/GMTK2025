@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
             _coyoteTimeCounter -= Time.deltaTime;
 
         // Jump
-        if (_coyoteTimeCounter > 0f && Input.GetButtonDown("Jump"))
+        if (_coyoteTimeCounter > 0f && Input.GetButtonDown("Jump") && _controlsEnabled)
         {
             _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, jumpForce);
         }

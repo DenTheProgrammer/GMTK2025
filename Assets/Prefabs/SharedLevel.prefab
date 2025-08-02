@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 680393420424445302}
   - component: {fileID: 6279991960885098483}
   m_Layer: 0
-  m_Name: Background_layer1
+  m_Name: foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
