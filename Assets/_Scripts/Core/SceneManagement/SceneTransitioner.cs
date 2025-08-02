@@ -64,6 +64,9 @@ public class SceneTransitioner : MonoBehaviour
         await SceneLoader.UnloadSceneAsync(SceneManager.GetActiveScene().name);
         await SceneLoader.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
         
+        Scene loadedScene = SceneManager.GetSceneByName(sceneName);
+        SceneManager.SetActiveScene(loadedScene);
+        
         while (Time.time - startTime < minLoadingTime)
         {
             //Debug.Log($"time loading passed {Time.time - startTime}");
