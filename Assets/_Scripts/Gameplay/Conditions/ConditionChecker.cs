@@ -1,3 +1,4 @@
+/*
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -5,10 +6,10 @@ using UnityEngine;
 
 public class ConditionChecker : MonoBehaviour
 {
-    private List<Condition> conditions;
+    private List<ConditionBlock> conditionBlocks;
     private void Awake()
     {
-        conditions = new List<Condition>(GetComponentsInChildren<Condition>());
+        conditionBlocks = new List<ConditionBlock>(GetComponentsInChildren<ConditionBlock>());
     }
 
     private void LateUpdate()
@@ -18,13 +19,13 @@ public class ConditionChecker : MonoBehaviour
 
     private async Awaitable CheckConditions()
     {
-        foreach (var condition in conditions)
+        foreach (var conditionBlock in conditionBlocks)
         {
-            if (condition.CheckCondition())
+            if (conditionBlock.co)
             {
                 try
                 {
-                    await condition.HandleConditionPassed();
+                    await conditionBlock.HandleConditionPassed();
                 }
                 catch (Exception e)
                 {
@@ -35,3 +36,4 @@ public class ConditionChecker : MonoBehaviour
         }
     }
 }
+*/
