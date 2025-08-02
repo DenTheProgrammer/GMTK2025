@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 public abstract class AbstractInteractable : MonoBehaviour, IInteractable
@@ -7,6 +6,7 @@ public abstract class AbstractInteractable : MonoBehaviour, IInteractable
     [SerializeField] private KeyCode interactKey = KeyCode.E;
     [SerializeField] private Transform hint;
 
+    internal bool _interactInProgress;
     private bool _inZone = false;
     
     public abstract void Interact();
@@ -30,6 +30,11 @@ public abstract class AbstractInteractable : MonoBehaviour, IInteractable
 
     public virtual void Update()
     {
+        if (_interactInProgress)
+        {
+            ToggleHint(false);    
+        }
+        
         if (Input.GetKeyDown(interactKey))
         {
             if (_inZone)
