@@ -69,7 +69,7 @@ public class HintSystem : MonoBehaviour
     private void UpdateHintsVisibility()
     {
         int lastVisibleHint = _gameManager.GetLastHintIndex(_currentSceneName);
-        Debug.Log($"lastVisibleHint for scene {_currentSceneName} index: {lastVisibleHint}");
+        //Debug.Log($"lastVisibleHint for scene {_currentSceneName} index: {lastVisibleHint}");
         int i = 0;
         
         foreach (var hint in _hints)
@@ -87,6 +87,8 @@ public class HintSystem : MonoBehaviour
     {
         cancelBtn.onClick.RemoveListener(OnCancelButtonClick);
         confirmBtn.onClick.RemoveListener(OnConfirmButtonClick);
+        
+        DOTween.Kill(hintReminder);
     }
 
     private void OnCancelButtonClick()
@@ -127,6 +129,7 @@ public class HintSystem : MonoBehaviour
 
     private async Awaitable ShowHintReminder()
     {
+        if (hintReminder == null) return;
         int hintCount = _hints.Count;
         int nextHintIndex = _gameManager.GetLastHintIndex(_currentSceneName) + 2;
         
