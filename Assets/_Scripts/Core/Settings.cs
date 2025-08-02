@@ -8,16 +8,16 @@ public class Settings : MonoBehaviour
 {
     [Header("Audio")]
     [SerializeField] private AudioMixer audioMixer;
-    [SerializeField] private Slider sfxVolume;
+    [SerializeField] public Slider sfxVolume;
     [SerializeField] private Slider musicVolume;
     [Header("Fun Settings")]
-    [SerializeField] private Slider brightness;
+    [SerializeField] public Slider brightness;
     [SerializeField] private SpriteRenderer brightnessImage;
-    [SerializeField] private Toggle colorblindToggle;
+    [SerializeField] public Toggle colorblindToggle;
     [SerializeField] private Volume ppVolume;
     
     private ColorAdjustments _colorAdjustments;
-
+    
     private void Awake()
     {
         sfxVolume.onValueChanged.AddListener(UpdateVolume);
@@ -25,6 +25,8 @@ public class Settings : MonoBehaviour
         brightness.onValueChanged.AddListener(UpdateBrightness);
         colorblindToggle.onValueChanged.AddListener(UpdateColorblind);
         ppVolume.profile.TryGet(out _colorAdjustments);
+        
+        ServiceLocator.Register(this, false);
     }
 
     private void UpdateColorblind(bool isOn)

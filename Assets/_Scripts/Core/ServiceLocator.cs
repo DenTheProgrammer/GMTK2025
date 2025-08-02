@@ -6,7 +6,7 @@ public static class ServiceLocator
 {
     private static readonly Dictionary<Type, object> _services = new();
     
-    public static void Register<T>(T service, bool canOverride)
+    public static void Register<T>(T service, bool canOverride = false)
     {
         var type = typeof(T);
         if (_services.ContainsKey(type) && !canOverride)

@@ -43,8 +43,13 @@ public class Glow : MonoBehaviour
         // SpriteRenderer
         if (TryGetComponent(out SpriteRenderer spriteRenderer))
         {
-            spriteRenderer.color /= _currentGlowAmount;
-            spriteRenderer.color *= intensity;
+            float alpha = spriteRenderer.color.a;
+            Color color = spriteRenderer.color;
+            color /= _currentGlowAmount;
+            color *= intensity;
+            
+            color.a = alpha;
+            spriteRenderer.color = color;
         }
         // TextMeshProUGUI
         else if (TryGetComponent(out TextMeshProUGUI textMeshProUGUI))

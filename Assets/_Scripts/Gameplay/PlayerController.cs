@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     private float _moveInput;
     private float _coyoteTimeCounter;
     private bool _inJump;
+    private bool _controlsEnabled = true;
 
     private void Start()
     {
@@ -40,6 +41,10 @@ public class PlayerController : MonoBehaviour
         SetupCameraFollow();
     }
 
+    public void EnableControls(bool enable)
+    {
+        _controlsEnabled = enable;
+    }
     private void SetupCameraFollow()
     {
         CameraFollow cameraFollow = FindFirstObjectByType<CameraFollow>();
@@ -132,7 +137,11 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         // Move player
-        _rb.linearVelocity = new Vector2(_moveInput * moveSpeed, _rb.linearVelocity.y);
+        if (_controlsEnabled)
+        {
+            _rb.linearVelocity = new Vector2(_moveInput * moveSpeed, _rb.linearVelocity.y);
+        }
+        
 
         // Ground check
         _isGrounded = CheckIfGrounded();
