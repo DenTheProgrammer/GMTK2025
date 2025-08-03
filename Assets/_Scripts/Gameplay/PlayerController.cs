@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     private static readonly int Speed = Animator.StringToHash("Speed");
     private static readonly int InJump = Animator.StringToHash("InJump");
+
+    public static Action<bool> OnJump;
 
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
@@ -114,19 +117,28 @@ public class PlayerController : MonoBehaviour
 
     private void SpriteAnimate()
     {
-        if (_rb.linearVelocity.y > 0 && _inJump == false) //start jump
+        if (_rb.linearVelocity.y > 1f && _inJump == false) //start jump
         {
-            _inJump = true;
-            //Debug.Log($"Start Jump");
+            if (!_inJump)
+            {
+                _inJump = true;
+                OnJump?.Invoke(true);
+                Debug.Log($"Start Jump, linear velocity: {_rb.linearVelocity.y}");
+                animator.SetBool(InJump, _inJump);
+            }
         }
 
-        if (_inJump == true && CheckIfGrounded()) //stop jump
+        if (_rb.linearVelocity.y < 0.01f && _inJump == true && CheckIfGrounded()) //stop jump
         {
-            _inJump = false;
-            //Debug.Log($"Stop Jump");
+            if (_inJump)
+            {
+                _inJump = false;
+                OnJump?.Invoke(false);
+                Debug.Log($"Stop Jump");
+                animator.SetBool(InJump, _inJump);
+            }
         }
         
-        animator.SetBool(InJump, _inJump);
         animator.SetFloat(Speed, Mathf.Abs(_moveInput * moveSpeed));
         if (_moveInput != 0)
         {
