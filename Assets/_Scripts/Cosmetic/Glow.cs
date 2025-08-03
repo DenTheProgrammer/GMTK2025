@@ -21,7 +21,6 @@ public class Glow : MonoBehaviour
 
     private void Update()
     {
-        SetGlow(glowMultiplier);
 #if UNITY_EDITOR
         
         if (Input.GetKeyDown(KeyCode.G))
