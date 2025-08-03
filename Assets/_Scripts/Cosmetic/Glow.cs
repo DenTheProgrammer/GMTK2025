@@ -107,25 +107,29 @@ public class Glow : MonoBehaviour
         // TextMeshProUGUI
         else if (TryGetComponent(out TextMeshProUGUI textMeshProUGUI))
         {
-            _material = textMeshProUGUI.fontMaterial;
+            _material = new Material(textMeshProUGUI.fontMaterial);
+            textMeshProUGUI.fontMaterial = _material;
             _originalColor = _material.GetColor(FaceColor);
         }
         // TextMeshPro
         else if (TryGetComponent(out TextMeshPro textMeshPro))
         {
-            _material = textMeshPro.fontMaterial;
+            _material = new Material(textMeshPro.fontMaterial);
+            textMeshPro.fontMaterial = _material;
             _originalColor = _material.GetColor(FaceColor);
         }
         // UI Image
         else if (TryGetComponent(out Image image))
         {
-            _material = image.material;
+            _material = new Material(image.material);
+            image.material = _material;
             _originalColor = _material.color;
         }
         // MeshRenderer
         else if (TryGetComponent(out MeshRenderer meshRenderer))
         {
-            _material = meshRenderer.material;
+            _material = new Material(meshRenderer.material);
+            meshRenderer.material = _material;
             _originalColor = _material.color;
         }
     }
