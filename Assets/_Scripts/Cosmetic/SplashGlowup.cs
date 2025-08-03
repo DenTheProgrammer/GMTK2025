@@ -1,7 +1,7 @@
 using System;
-using System.Threading;
 using UnityEngine;
 
+[RequireComponent(typeof(Glow))]
 public class SplashGlowup : MonoBehaviour
 {
     [SerializeField] private float intensity = 2f;
