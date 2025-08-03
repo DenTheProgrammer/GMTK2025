@@ -58,16 +58,20 @@ public class Glow : MonoBehaviour
         else if (TryGetComponent(out TextMeshProUGUI textMeshProUGUI))
         {
             Color currentColor = _material.GetColor(FaceColor);
+            float alpha = currentColor.a;
             currentColor /= _currentGlowAmount;
             currentColor *= intensity;
+            currentColor.a = alpha;
             _material.SetColor(FaceColor, currentColor);
         }
         // TextMeshPro
         else if (TryGetComponent(out TextMeshPro textMeshPro))
         {
             Color currentColor = _material.GetColor(FaceColor);
+            float alpha = currentColor.a;
             currentColor /= _currentGlowAmount;
             currentColor *= intensity;
+            currentColor.a = alpha;
             _material.SetColor(FaceColor, currentColor);
         }
         // UI Image
