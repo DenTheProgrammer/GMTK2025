@@ -77,14 +77,22 @@ public class Glow : MonoBehaviour
         // UI Image
         else if (TryGetComponent(out Image image))
         {
-            _material.color /= _currentGlowAmount;
-            _material.color *= intensity;
+            Color currentColor = _material.color;
+            float alpha = currentColor.a;
+            currentColor /= _currentGlowAmount;
+            currentColor *= intensity;
+            currentColor.a = alpha;
+            _material.color = currentColor;
         }
         // MeshRenderer
         else if (TryGetComponent(out MeshRenderer meshRenderer))
         {
-             meshRenderer.material.color /= _currentGlowAmount;
-             meshRenderer.material.color *= intensity;
+            Color currentColor = _material.color;
+            float alpha = currentColor.a;
+            currentColor /= _currentGlowAmount;
+            currentColor *= intensity;
+            currentColor.a = alpha;
+            _material.color = currentColor;
         }
         _currentGlowAmount = intensity;
     }
