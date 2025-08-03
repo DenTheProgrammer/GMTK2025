@@ -13,16 +13,16 @@ public class SceneTransitioner : MonoBehaviour
 
     private void Update()
     {
-#if  UNITY_EDITOR
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.N)) //Debug hotkeys
         {
             _ = TransitionToNextLevelAsync();
         }
-        else if (Input.GetKeyDown(KeyCode.R))
+#endif
+        if (Input.GetKeyDown(KeyCode.R))
         {
             _ = ReloadCurrentScene();
         }
-#endif
     }
 
     public async Awaitable TransitionToMenuScene()
