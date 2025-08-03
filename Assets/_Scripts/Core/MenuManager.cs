@@ -24,7 +24,7 @@ public class MenuManager : MonoBehaviour
         settingsButton.onClick.RemoveListener(HandleSettingsButtonClicked);
     }
 
-    private async void HandlePlayButtonClicked()
+    private void HandlePlayButtonClicked()
     {
         playButton.interactable = false;
         //await ServiceLocator.Get<SceneTransitioner>().TransitionToSceneAsync(firstPlayScene);

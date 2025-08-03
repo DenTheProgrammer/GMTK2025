@@ -306,6 +306,8 @@ GameObject:
   - component: {fileID: 244582066}
   - component: {fileID: 244582065}
   - component: {fileID: 244582067}
+  - component: {fileID: 244582068}
+  - component: {fileID: 244582069}
   m_Layer: 0
   m_Name: GmtkLogo
   m_TagString: Untagged
@@ -395,6 +397,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23b8b77be0cd4332ad016de8fc701829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &244582068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244582064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26062d2af1af1074cab4f4a35690a8c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowMultiplier: 1
+--- !u!95 &244582069
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244582064}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f56c6400d2de3114b832813d9fba6fd6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &757466654
 GameObject:
   m_ObjectHideFlags: 0

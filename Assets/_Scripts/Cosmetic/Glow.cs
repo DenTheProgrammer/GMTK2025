@@ -21,10 +21,14 @@ public class Glow : MonoBehaviour
 
     private void Update()
     {
+        SetGlow(glowMultiplier);
+#if UNITY_EDITOR
+        
         if (Input.GetKeyDown(KeyCode.G))
         {
             _ = SetGlow(1.6f, 3, 0.33f);
         }
+#endif
     }
 
     public async Awaitable SetGlow(float intensity, float repeat, float duration)
