@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1834454847
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 99
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
@@ -298,7 +298,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a092fe57e3e534c40ba3af89c3cead5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgMusic: {fileID: 11400000, guid: 02eea3b2045da704183a014605a13ac8, type: 2}
+  bgMusic: {fileID: 11400000, guid: 23af25b84ab62aa4fb76b65cabaec90b, type: 2}
+  startFromScene:
+    m_SceneAsset: {fileID: 102900000, guid: c507ba9df4e379744beac1e383383ed1, type: 3}
+    m_SceneName: MainMenu
 --- !u!1 &4687813645841176805
 GameObject:
   m_ObjectHideFlags: 0

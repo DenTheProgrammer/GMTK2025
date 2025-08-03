@@ -1,9 +1,11 @@
-using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BgMusic : MonoBehaviour
 {
     [SerializeField] private SoundData bgMusic;
+    [SerializeField] private SceneReference startFromScene;
+        
     
     private AudioManager _audioManager;
     private AudioSource _audioSource;
@@ -11,7 +13,22 @@ public class BgMusic : MonoBehaviour
     private void Start()
     {
         _audioManager = ServiceLocator.Get<AudioManager>();
-        _audioSource = _audioManager.Play(bgMusic, Vector3.zero);
+        SceneLoader.OnSceneLoaded += SceneLoaderOnSceneLoaded;
+        TryStartMusic(SceneManager.GetActiveScene().name);
+    }
+
+    private void SceneLoaderOnSceneLoaded(string sceneName)
+    {
+        TryStartMusic(sceneName);
+    }
+
+    private void TryStartMusic(string currentSceneName)
+    {
+        if (_audioSource != null) return;
+        if (currentSceneName == startFromScene)
+        {
+            _audioSource = _audioManager.Play(bgMusic, Vector3.zero);
+        }
     }
 
     private void OnDestroy()
@@ -20,5 +37,6 @@ public class BgMusic : MonoBehaviour
         {
             _audioManager.StopSound(_audioSource);
         }
+        SceneLoader.OnSceneLoaded -= SceneLoaderOnSceneLoaded;
     }
 }

@@ -27,6 +27,6 @@ public class MenuManager : MonoBehaviour
     private async void HandlePlayButtonClicked()
     {
         playButton.interactable = false;
-        await ServiceLocator.Get<SceneTransitioner>().TransitionToSceneAsync(firstPlayScene);
+        //await ServiceLocator.Get<SceneTransitioner>().TransitionToSceneAsync(firstPlayScene);
     }
 }
