@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound: {fileID: 8300000, guid: 92bf9e50c03725e48966dd0897944b59, type: 3}
   audioMixerGroup: {fileID: 5447336380492770838, guid: 8d73bca286c902543bf1343a84d3d889, type: 2}
-  volume: 1
+  volume: 0.3
   loop: 0
   pitch: 1.5
   pitchVariance: 0.3

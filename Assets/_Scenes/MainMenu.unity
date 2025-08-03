@@ -313,6 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 050ad7fec08749a8877000826f811afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetObject: {fileID: 0}
   intensity: 1.6
   repeatTimes: 3
   totalTime: 5
@@ -559,7 +560,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!43 &266144228
+--- !u!43 &330467304
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -792,7 +793,7 @@ MonoBehaviour:
     rid: 4540438389458993631
   m_ShadowCastingSource: 2
   m_ShadowMesh:
-    m_Mesh: {fileID: 266144228}
+    m_Mesh: {fileID: 330467304}
     m_LocalBounds:
       m_Center: {x: -0.5, y: 10, z: 0}
       m_Extent: {x: 24.399994, y: 19.899994, z: 0}
@@ -7746,7 +7747,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 1834454847
-  m_SortingOrder: 99
+  m_SortingOrder: 40
   m_TargetDisplay: 0
 --- !u!225 &1547878143
 CanvasGroup:
@@ -9661,7 +9662,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 1834454847
-  m_SortingOrder: 500
+  m_SortingOrder: 50
   m_TargetDisplay: 0
 --- !u!224 &1917865709
 RectTransform:
