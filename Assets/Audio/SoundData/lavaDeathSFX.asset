@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a35096370487391488d5d1823878a42f, type: 3}
   m_Name: lavaDeathSFX
   m_EditorClassIdentifier: 
-  sound: {fileID: 8300000, guid: e1c9aa145d76e504eb837ba1074d0d1d, type: 3}
+  sound: {fileID: 8300000, guid: 431efc09acd2576498748e338c49fa89, type: 3}
   audioMixerGroup: {fileID: 5447336380492770838, guid: 8d73bca286c902543bf1343a84d3d889, type: 2}
-  volume: 1
+  volume: 2
   loop: 0
-  pitch: 1
-  pitchVariance: 0.2
+  pitch: 0.9
+  pitchVariance: 0.1

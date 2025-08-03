@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class EffectDisableDamager : Effect
+public class EffectEnableDamager : Effect
 {
     [SerializeField] private Damager damager;
-
+    [SerializeField] private bool enable;
 
     public override Awaitable ApplyEffect()
     {
-        Destroy(damager);
+        damager.enabled = enable;
         return Awaitable.NextFrameAsync();
     }
 }

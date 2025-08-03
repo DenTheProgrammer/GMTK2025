@@ -4,16 +4,30 @@ using UnityEngine;
 public class Damager : MonoBehaviour
 {
     [SerializeField] private bool instaKill = false;
+    [SerializeField] private SoundData damageSound;
     [SerializeField] private float damage = 10f;
-    public void OnCollisionEnter2D(Collision2D other)
+    
+    private AudioManager _audioManager;
+
+    private void Start()
     {
-        OnTriggerEnter2D(other.collider);
+        _audioManager = ServiceLocator.Get<AudioManager>();
     }
 
-    public void OnTriggerEnter2D(Collider2D other)
+    public void OnCollisionStay2D(Collision2D other)
     {
+        OnTriggerStay2D(other.collider);
+    }
+
+    public void OnTriggerStay2D(Collider2D other)
+    {
+        if (!enabled) return;
         if (!other.TryGetComponent(out Health health)) return;
 
+        if (damageSound)
+        {
+            _audioManager.Play(damageSound, transform.position);
+        }
         if (instaKill)
         {
             health.Kill();
