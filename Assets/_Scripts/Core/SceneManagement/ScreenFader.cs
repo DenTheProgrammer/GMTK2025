@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class ScreenFader : MonoBehaviour
@@ -24,6 +25,11 @@ public class ScreenFader : MonoBehaviour
         
         pos.y = Screen.height - pos.y;
         return pos;
+    }
+
+    private void OnDestroy()
+    {
+        fadeImage.material.SetVector(Center, Vector4.zero);
     }
 
 
