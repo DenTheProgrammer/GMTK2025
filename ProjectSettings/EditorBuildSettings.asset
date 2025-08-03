@@ -24,8 +24,17 @@ EditorBuildSettings:
     path: Assets/_Scenes/Levels/Level_HearingProblem.unity
     guid: e641fedd6bb4a3e4a896ca1238cc00ae
   - enabled: 1
-    path: Assets/_Scenes/Levels/Level_Colorblind.unity
-    guid: 3d1f40ec5c85a064189215f6126cfc7b
+    path: Assets/_Scenes/Levels/Level_KnockKnock.unity
+    guid: 1f0ade7cbc00e9e4586fd6bbcdc4a774
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Level_CompanionPC.unity
+    guid: 87cd9e769c2c5fb438ee55ea459b560a
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Level_DanceForMe.unity
+    guid: cc2a2503d90c7cd42a1980f3ac39b2b3
+  - enabled: 1
+    path: Assets/_Scenes/Levels/Level_ThanksForPlaying!.unity
+    guid: 181a5e5f220460f48ab2c58359b011e8
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: dca1290dc74e7074e91de69e82054d18, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
