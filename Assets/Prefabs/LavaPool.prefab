@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7765881846351853511}
   - component: {fileID: 121538347583553492}
   - component: {fileID: 8569394808594010360}
+  - component: {fileID: 6466586219595447075}
   m_Layer: 0
   m_Name: LavaPool
   m_TagString: Untagged
@@ -134,3 +135,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6466586219595447075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70455039888416685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcd7a39327c84769b265fdb0c3d5dd4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 11400000, guid: e66782a5043bcff438de24eb3e781d5e, type: 2}
