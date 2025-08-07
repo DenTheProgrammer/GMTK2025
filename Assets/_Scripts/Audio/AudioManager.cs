@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour, IAudioPlayer
 {
-    public AudioLibrarySO audioLibrary; 
+    [SerializeField] private List<AudioSource> audioSourceTemplates;
         
     private List<AudioSource> playingSounds = new ();
 
@@ -22,11 +22,17 @@ public class AudioManager : MonoBehaviour, IAudioPlayer
         }
         if (this == null || gameObject == null || transform == null) return null;
 
-        var sourceGO = new GameObject("_Audio");
-        sourceGO.transform.SetParent(transform);
-        sourceGO.transform.position = position;
+        AudioSource audioSource = GetSuitableAudioSource(soundData);
 
-        var source = sourceGO.AddComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            Debug.LogError($"Can't find audio source template for mixer group {audioSource.outputAudioMixerGroup}");
+            return null;
+        }
+        
+        var source = Instantiate(audioSource, position, Quaternion.identity, transform);
+        source.gameObject.name = $"{soundData.audioMixerGroup}_{soundData.name}";
+        
         source.clip = soundData.sound;
         source.volume = soundData.volume;
         source.loop = soundData.loop;
@@ -39,13 +45,6 @@ public class AudioManager : MonoBehaviour, IAudioPlayer
             source.pitch = resulPitch;
         }
         
-        source.spatialBlend = 1f;
-        source.rolloffMode = AudioRolloffMode.Logarithmic; 
-        source.minDistance = 1f;
-        source.maxDistance = 500f;
-        source.spread = 0f;
-        source.dopplerLevel = 1f;
-        
         playingSounds.Add(source);
         source.Play();
 
@@ -56,6 +55,18 @@ public class AudioManager : MonoBehaviour, IAudioPlayer
         }
 
         return source;
+    }
+
+    private AudioSource GetSuitableAudioSource(SoundData soundData)
+    {
+        foreach (var audioSource in audioSourceTemplates)
+        {
+            if (audioSource.outputAudioMixerGroup == soundData.audioMixerGroup)
+            {
+                return audioSource;
+            }
+        }
+        return null;
     }
 
     private IEnumerator StopAfterDelay(AudioSource source, float delay)
