@@ -2,6 +2,6 @@
 
 public interface IAudioPlayer
 { 
-    public AudioSource Play(SoundData soundData, Vector3 position);
+    public AudioSource Play(SoundData soundData, Transform spawnTransform, bool follow = false);
     public void Stop(AudioSource audioSource);
 }

@@ -14,10 +14,10 @@ public class FX
         _cameraShakeManager = ServiceLocator.Get<CameraShakeManager>();
     }
     
-    public static AudioSource PlaySound(SoundData sound, Vector3 position)
+    public static AudioSource PlaySound(SoundData sound, Transform spawnTransform, bool follow = false)
     {
         if (!_isInited) Init();
-        AudioSource audioSource = _audioManager.Play(sound, position);
+        AudioSource audioSource = _audioManager.Play(sound, spawnTransform, follow);
         return audioSource;
     }
 

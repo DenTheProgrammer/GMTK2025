@@ -9,7 +9,7 @@ public class StaticSFX : MonoBehaviour
     private void Start()
     {
         _audioManager = ServiceLocator.Get<AudioManager>();
-        _audioSource = _audioManager.Play(sound, transform.position);
+        _audioSource = _audioManager.Play(sound, transform);
     }
 
     private void OnDestroy()

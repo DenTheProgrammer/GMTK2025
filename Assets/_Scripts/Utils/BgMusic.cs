@@ -27,7 +27,7 @@ public class BgMusic : MonoBehaviour
         if (_audioSource != null) return;
         if (currentSceneName == startFromScene)
         {
-            _audioSource = _audioManager.Play(bgMusic, Vector3.zero);
+            _audioSource = _audioManager.Play(bgMusic, transform);
         }
     }
 

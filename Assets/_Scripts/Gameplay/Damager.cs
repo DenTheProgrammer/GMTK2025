@@ -7,11 +7,11 @@ public class Damager : MonoBehaviour
     [SerializeField] private SoundData damageSound;
     [SerializeField] private float damage = 10f;
     
-    private AudioManager _audioManager;
+    private IAudioPlayer _audioManager;
 
     private void Start()
     {
-        _audioManager = ServiceLocator.Get<AudioManager>();
+        _audioManager = ServiceLocator.Get<IAudioPlayer>();
     }
 
     public void OnCollisionStay2D(Collision2D other)
@@ -26,7 +26,7 @@ public class Damager : MonoBehaviour
 
         if (damageSound)
         {
-            _audioManager.Play(damageSound, transform.position);
+            _audioManager.Play(damageSound, transform);
         }
         if (instaKill)
         {

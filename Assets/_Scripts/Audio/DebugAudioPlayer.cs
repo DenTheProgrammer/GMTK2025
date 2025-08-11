@@ -7,9 +7,9 @@ public class DebugAudioPlayer : IAudioPlayer
         Debug.Log("DbgAudioPlayer: Playing " + clip?.name + " at " + position);
     }
 
-    public AudioSource Play(SoundData soundData, Vector3 position)
+    public AudioSource Play(SoundData soundData, Transform spawnTransform, bool follow = false)
     {
-        Debug.Log("DbgAudioPlayer: Playing " + soundData?.name + " at " + position);
+        Debug.Log("DbgAudioPlayer: Playing " + soundData?.name + " at " + spawnTransform.position);
         return null;
     }
 

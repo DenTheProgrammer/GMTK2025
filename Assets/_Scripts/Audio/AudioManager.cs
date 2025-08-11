@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour, IAudioPlayer
@@ -14,14 +12,14 @@ public class AudioManager : MonoBehaviour, IAudioPlayer
         ServiceLocator.Register<IAudioPlayer>(this);
     }
 
-    public AudioSource Play(SoundData soundData, Vector3 position)
+    public AudioSource Play(SoundData soundData, Transform spawnTransform, bool follow = false)
     {
         if (!soundData || !soundData.sound)
         {
             Debug.LogWarning($"No such SoundData or sound {soundData.sound.name}");
             return null;
         }
-        if (this == null || gameObject == null || transform == null) return null;
+        if (this == null || gameObject == null || spawnTransform == null) return null;
 
         AudioSource audioSource = GetSuitableAudioSource(soundData);
 
@@ -31,7 +29,11 @@ public class AudioManager : MonoBehaviour, IAudioPlayer
             return null;
         }
         
-        var source = Instantiate(audioSource, position, Quaternion.identity, transform);
+        var source = Instantiate(audioSource, spawnTransform.position, Quaternion.identity, transform);
+        if (follow)
+        {
+            source.transform.SetParent(spawnTransform.transform);
+        }
         source.gameObject.name = $"{soundData.audioMixerGroup}_{soundData.name}";
         
         source.clip = soundData.sound;

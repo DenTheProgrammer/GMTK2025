@@ -17,12 +17,6 @@ public static class ServiceLocator
 
         _services[type] = service;
     }
-    
-    /*public static void Unregister<T>(T service)
-    {
-        var type = typeof(T);
-        _services.Remove(type);
-    }*/
 
     public static T Get<T>()
     {
@@ -31,7 +25,16 @@ public static class ServiceLocator
         {
             return (T)service;
         }
-
+        
+        foreach (Type key in _services.Keys)
+        {
+            var value = _services[key];
+            // key is a base/interface of requested type (e.g., key = IAudioPlayer, T = AudioManager)
+            // Only return if the instance actually is T
+            if (key.IsAssignableFrom(type) && value is T cast)
+                return cast;
+        }
+        
         throw new Exception($"Service {type} is not registered.");
     }
     
