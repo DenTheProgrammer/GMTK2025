@@ -14,6 +14,6 @@ public class StaticSFX : MonoBehaviour
 
     private void OnDestroy()
     {
-        _audioManager.StopSound(_audioSource);
+        _audioManager.Stop(_audioSource);
     }
 }

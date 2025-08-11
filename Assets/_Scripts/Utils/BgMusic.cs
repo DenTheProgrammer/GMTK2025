@@ -7,12 +7,12 @@ public class BgMusic : MonoBehaviour
     [SerializeField] private SceneReference startFromScene;
         
     
-    private AudioManager _audioManager;
+    private IAudioPlayer _audioManager;
     private AudioSource _audioSource;
 
     private void Start()
     {
-        _audioManager = ServiceLocator.Get<AudioManager>();
+        _audioManager = ServiceLocator.Get<IAudioPlayer>();
         SceneLoader.OnSceneLoaded += SceneLoaderOnSceneLoaded;
         TryStartMusic(SceneManager.GetActiveScene().name);
     }
@@ -35,7 +35,7 @@ public class BgMusic : MonoBehaviour
     {
         if (_audioManager != null)
         {
-            _audioManager.StopSound(_audioSource);
+            _audioManager.Stop(_audioSource);
         }
         SceneLoader.OnSceneLoaded -= SceneLoaderOnSceneLoaded;
     }

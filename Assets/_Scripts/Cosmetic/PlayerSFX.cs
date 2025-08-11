@@ -1,14 +1,11 @@
-using System;
 using UnityEngine;
 
 public class PlayerSFX : MonoBehaviour
 {
     [SerializeField] private SoundData jumpSound;
-    
-    private AudioManager _audioManager;
+
     private void Start()
     {
-        _audioManager = ServiceLocator.Get<AudioManager>();
         PlayerController.OnJump += OnJump;
     }
 
@@ -21,7 +18,7 @@ public class PlayerSFX : MonoBehaviour
     {
         if (isJumpingStart)
         {
-            _audioManager.Play(jumpSound, transform.position);
+            FX.PlaySound(jumpSound, transform.position);
         }
     }
 }

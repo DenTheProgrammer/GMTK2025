@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour, IAudioPlayer
 
     private void Awake()
     {
-        ServiceLocator.Register(this, false);
+        ServiceLocator.Register<IAudioPlayer>(this, false);
     }
 
     public AudioSource Play(SoundData soundData, Vector3 position)
@@ -72,10 +72,10 @@ public class AudioManager : MonoBehaviour, IAudioPlayer
     private IEnumerator StopAfterDelay(AudioSource source, float delay)
     {
         yield return new WaitForSeconds(delay);
-        StopSound(source);
+        Stop(source);
     }
     
-    public void StopSound(AudioSource source)
+    public void Stop(AudioSource source)
     {
         playingSounds.Remove(source);
         if (source && source.gameObject)

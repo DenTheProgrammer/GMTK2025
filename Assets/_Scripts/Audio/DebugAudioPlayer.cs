@@ -12,4 +12,9 @@ public class DebugAudioPlayer : IAudioPlayer
         Debug.Log("DbgAudioPlayer: Playing " + soundData?.name + " at " + position);
         return null;
     }
+
+    public void Stop(AudioSource audioSource)
+    {
+        Debug.Log($"DbgAudioPlayer: Stop Playing {audioSource?.name}");
+    }
 }

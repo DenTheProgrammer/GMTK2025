@@ -51,10 +51,10 @@ public class VisualEffectsManager : MonoBehaviour
             .SetTarget(type);
     }
 
-    public void ScreenFlash(float intensity = 1)
+    public void ScreenFlash(float intensity = 1, float duration = 1f)
     {
-        BumpParameter(typeof(Bloom), _bloom.intensity, 2 * intensity, 0.1f, 0.5f);
-        BumpParameter(typeof(ChromaticAberration), _chromaticAberration.intensity, 0.5f * intensity, 0.2f, 0.5f);
-        BumpParameter(typeof(LensDistortion), _lensDistortion.intensity, -0.2f * intensity, 0.1f, 1.5f);
+        BumpParameter(typeof(Bloom), _bloom.intensity, 2 * intensity, duration * 0.1f, duration *0.5f);
+        BumpParameter(typeof(ChromaticAberration), _chromaticAberration.intensity, 0.5f * intensity, duration * 0.2f, duration * 0.5f);
+        //BumpParameter(typeof(LensDistortion), _lensDistortion.intensity, -0.2f * intensity, duration *0.1f, duration *1.5f);
     }
 }
