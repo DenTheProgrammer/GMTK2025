@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour, IAudioPlayer
@@ -51,7 +52,7 @@ public class AudioManager : MonoBehaviour, IAudioPlayer
         
         if (!soundData.loop)
         {
-            StartCoroutine(StopAfterDelay(source, source.clip.length));
+            _ = StopAfterDelay(source, source.clip.length).RunSafe();
         }
 
         return source;
@@ -69,9 +70,9 @@ public class AudioManager : MonoBehaviour, IAudioPlayer
         return null;
     }
 
-    private IEnumerator StopAfterDelay(AudioSource source, float delay)
+    private async Awaitable StopAfterDelay(AudioSource source, float delay)
     {
-        yield return new WaitForSeconds(delay);
+        await Awaitable.WaitForSecondsAsync(delay, destroyCancellationToken);
         Stop(source);
     }
     
