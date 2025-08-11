@@ -3,14 +3,15 @@ public class FX
 {
     private static bool _isInited = false;
     
-    
     private static IAudioPlayer _audioManager;
     private static VisualEffectsManager _visualEffectsManager;
+    private static CameraShakeManager _cameraShakeManager;
 
     public static void Init()
     {
         _audioManager = ServiceLocator.Get<IAudioPlayer>();
         _visualEffectsManager = ServiceLocator.Get<VisualEffectsManager>();
+        _cameraShakeManager = ServiceLocator.Get<CameraShakeManager>();
     }
     
     public static AudioSource PlaySound(SoundData sound, Vector3 position)
@@ -31,5 +32,12 @@ public class FX
         if (!_isInited) Init();
         
         _visualEffectsManager.ScreenFlash(intensity, duration);
+    }
+
+    public static void ScreenShake(Vector2 direction, float strength, float duration)
+    {
+        if (!_isInited) Init();
+        
+        _ = _cameraShakeManager.TriggerShake(direction, strength, duration).RunSafe();
     }
 }

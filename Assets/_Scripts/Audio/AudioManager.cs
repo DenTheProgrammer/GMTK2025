@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour, IAudioPlayer
 
     private void Awake()
     {
-        ServiceLocator.Register<IAudioPlayer>(this, false);
+        ServiceLocator.Register<IAudioPlayer>(this);
     }
 
     public AudioSource Play(SoundData soundData, Vector3 position)

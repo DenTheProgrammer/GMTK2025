@@ -80,7 +80,7 @@ public class SceneTransitioner : MonoBehaviour
     
     private void Awake()
     {
-        ServiceLocator.Register(this, false);
+        ServiceLocator.Register(this);
     }
 
     private async Awaitable LoadLevelByIndex(int levelIndex)

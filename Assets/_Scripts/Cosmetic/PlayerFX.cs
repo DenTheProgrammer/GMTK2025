@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerSFX : MonoBehaviour
+public class PlayerFX : MonoBehaviour
 {
     [SerializeField] private SoundData jumpSound;
 
@@ -19,6 +19,11 @@ public class PlayerSFX : MonoBehaviour
         if (isJumpingStart)
         {
             FX.PlaySound(jumpSound, transform.position);
+        }
+
+        if (!isJumpingStart) //on landing
+        {
+            FX.ScreenShake(Vector2.down, 0.25f, 0.125f);
         }
     }
 }

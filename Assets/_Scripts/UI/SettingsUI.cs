@@ -12,7 +12,7 @@ public class SettingsUI : MonoBehaviour
     }
     private void Awake()
     {
-        ServiceLocator.Register(this, false);
+        ServiceLocator.Register(this);
         settingsPanel.SetActive(false);
         closeButton.onClick.AddListener(ToggleSettingsPanel);
     }

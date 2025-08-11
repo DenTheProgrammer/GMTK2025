@@ -6,10 +6,10 @@ public static class ServiceLocator
 {
     private static readonly Dictionary<Type, object> _services = new();
     
-    public static void Register<T>(T service, bool canOverride = false)
+    public static void Register<T>(T service)
     {
         var type = typeof(T);
-        if (_services.ContainsKey(type) && !canOverride)
+        if (_services.ContainsKey(type))
         {
             //Debug.LogWarning($"Service {type} is already registered.");
             return;

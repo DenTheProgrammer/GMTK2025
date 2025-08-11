@@ -26,7 +26,7 @@ public class Settings : MonoBehaviour
         colorblindToggle.onValueChanged.AddListener(UpdateColorblind);
         ppVolume.profile.TryGet(out _colorAdjustments);
         
-        ServiceLocator.Register(this, false);
+        ServiceLocator.Register(this);
     }
 
     private void UpdateColorblind(bool isOn)
