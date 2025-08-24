@@ -283,8 +283,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 9127590912649789438}
   fadeSpeed: 1
-  maxRadius: 2300
-  fadePauseRadius: 200
+  maxRadius: 1.2
+  fadePauseRadius: 0.2
   fadePauseTime: 0
   fadePauseSpeedMult: 10
 --- !u!1 &7034969970312441538
