@@ -33,7 +33,7 @@ public class CameraShakeManager : MonoBehaviour
                 break;
             }
 
-            Debug.Log($"Current offset = {_currentOffset}, start local position = {_startLocalPosition}");
+            //Debug.Log($"Current offset = {_currentOffset}, start local position = {_startLocalPosition}");
             transform.localPosition = _startLocalPosition + _currentOffset;
             await Awaitable.NextFrameAsync(destroyCancellationToken);
             timePassed += Time.deltaTime;

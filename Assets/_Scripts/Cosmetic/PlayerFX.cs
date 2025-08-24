@@ -23,7 +23,7 @@ public class PlayerFX : MonoBehaviour
 
         if (!isJumpingStart) //on landing
         {
-            FX.ScreenShake(Vector2.down, 0.25f, 0.125f);
+            //FX.ScreenShake(Vector2.down, 0.07f, 0.125f);
         }
     }
 }
