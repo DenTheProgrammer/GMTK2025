@@ -14,7 +14,7 @@ public class FX
         _cameraShakeManager = ServiceLocator.Get<CameraShakeManager>();
     }
     
-    public static AudioSource PlaySound(SoundData sound, Transform spawnTransform, bool follow = false)
+    public static AudioSource PlaySound(SoundData sound, Transform spawnTransform = null, bool follow = false)
     {
         if (!_isInited) Init();
         AudioSource audioSource = _audioManager.Play(sound, spawnTransform, follow);

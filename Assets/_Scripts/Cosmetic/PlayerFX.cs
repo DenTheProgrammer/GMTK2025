@@ -18,7 +18,7 @@ public class PlayerFX : MonoBehaviour
     {
         if (isJumpingStart)
         {
-            FX.PlaySound(jumpSound, transform, true);
+            FX.PlaySound(jumpSound);
         }
 
         if (!isJumpingStart) //on landing

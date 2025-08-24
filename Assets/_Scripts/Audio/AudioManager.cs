@@ -12,14 +12,15 @@ public class AudioManager : MonoBehaviour, IAudioPlayer
         ServiceLocator.Register<IAudioPlayer>(this);
     }
 
-    public AudioSource Play(SoundData soundData, Transform spawnTransform, bool follow = false)
+    public AudioSource Play(SoundData soundData, Transform spawnTransform = null, bool follow = false)
     {
         if (!soundData || !soundData.sound)
         {
             Debug.LogWarning($"No such SoundData or sound {soundData.sound.name}");
             return null;
         }
-        if (this == null || gameObject == null || spawnTransform == null) return null;
+        if (this == null || gameObject == null) return null;
+        if (spawnTransform == null) spawnTransform = transform;
 
         AudioSource audioSource = GetSuitableAudioSource(soundData);
 

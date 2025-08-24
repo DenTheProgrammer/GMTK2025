@@ -26,7 +26,7 @@ public class Damager : MonoBehaviour
 
         if (damageSound)
         {
-            _audioManager.Play(damageSound, transform);
+            _audioManager.Play(damageSound);
         }
         if (instaKill)
         {
